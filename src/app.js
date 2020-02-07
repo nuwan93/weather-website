@@ -64,8 +64,9 @@ app.get('/weather', (req, res) => {
                 if (err) {
                     res.send({err})
                 } else {
+                    const summary = `Current temperature is ${weatherData.body.currently.temperature} and it is ${weatherData.body.currently.summary} outside`
                     res.send({
-                        summary: weatherData.body.currently.summary,
+                        summary: summary,
                         city: geoData.body.features[0].place_name,
                         ProvidedAddress: address
                     })
